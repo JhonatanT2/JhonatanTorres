@@ -12,7 +12,7 @@ export const projects = [
       subtitle: "React",
       description:
         "Es una pequeña aplicacion que realice para ampliar mis conocimientos en el uso de APIS, se trata de una especie de wiki sobre las peliculas de StarWars, en esta podemos obtener información tanto de personajes, vehículos, planetas y de las mismas peliculas entre otras cosas",
-      image: "./starwarsApi.png",
+      image: "./starwarsApi.PNG",
       link: "https://github.com/JhonatanT2/React/tree/master/React-StarWars/starwars-jhonatan",
     },
 ];
