@@ -1,6 +1,6 @@
 export const projects = [
     {
-      title: "Halnaz Social",
+      title: "Hlanz Social",
       subtitle: "PHP and JavaScript",
       description:
         "Se trata de una red social basica orientada hacia el instituto en el que estudie, en esta plataforma se puede interactuar con otras personas mediante la creacion de publicaciones o reaccionando al de otros mediante 'likes' o comentandolos, en principio esta orientada para tratar temas del instituto. Esta desarrollada principalmente con PHP, JavaScript, boostrap y Twig, para la base de datos se uso MySQL",
