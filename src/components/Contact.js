@@ -1,29 +1,17 @@
 import React from "react";
+import { SocialIcon } from 'react-social-icons'
 
 export default function Contact() {
-    const [name, setName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [message, setMessage] = React.useState("");
-
-    function encode(data) {
-        return Object.keys(data)
-          .map(
-            (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-          )
-          .join("&");
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "contact", name, email, message }),
-        })
-          .then(() => alert("Message sent!"))
-          .catch((error) => alert(error));
-    }
-
+    
+    const Mailto = ({ email, subject = '', body = '', children }) => {
+        let params = subject || body ? '?' : '';
+        if (subject) params += `subject=${encodeURIComponent(subject)}`;
+        if (body) params += `${subject ? '&' : ''}body=${encodeURIComponent(body)}`;
+      
+        return <a  
+        className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg" 
+        href={`mailto:${email}${params}`}>{children}</a>;
+    };
 
     return (
         <section id="contact" className="relative">
@@ -35,7 +23,7 @@ export default function Contact() {
                         title="map"
                         className="absolute inset-0"
                         style={{ filter: "opacity(0.7)" }}
-                        src="https://www.google.com/maps/embed/v1/place?q=Avenida+de+Andalucía,+99,+Granada,+España&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                        src="https://www.google.com/maps/embed/v1/place?q=Granada,+España&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                     />
                     <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
                         <div className="lg:w-1/2 px-6">
@@ -43,8 +31,7 @@ export default function Contact() {
                                 DIRECCIÓN
                             </h2>
                             <p className="mt-1">
-                                Av. Andalucia 99 7C <br />
-                                18015
+                                Granada - Andalucia                               
                             </p>
                         </div>
                         <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -60,62 +47,34 @@ export default function Contact() {
                             <p className="leading-relaxed">000000000</p> */}
                         </div>
                     </div>
-                </div>    
-                <form
-                    netlify
-                    name="contact"
-                    onSubmit={handleSubmit}
-                    className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                </div>
+                <div className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
                     <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
-                        Hire Me
+                        Contratame
                     </h2>
                     <p className="leading-relaxed mb-5">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-                        suscipit officia aspernatur veritatis. Asperiores, aliquid?
+                        Si te interesa mi perfil y te gustaria ponerte en contacto, puedes contactarme mediante mi correo!
                     </p>
-                    <div className="relative mb-4">
-                        <label htmlFor="name" className="leading-7 text-sm text-gray-400">
-                        Nombre
-                        </label>
-                        <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label htmlFor="email" className="leading-7 text-sm text-gray-400">
-                        Email
-                        </label>
-                        <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label
-                        htmlFor="message"
-                        className="leading-7 text-sm text-gray-400">
-                        Mensaje
-                        </label>
-                        <textarea
-                        id="message"
-                        name="message"
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                        onChange={(e) => setMessage(e.target.value)}
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                        Submit
-                    </button>
-                </form>
+                    <p className="leading-relaxed mb-5 flex items-center">                      
+                    <Mailto email="arielto333@gmail.com" subject="Hola" body="Hello world!">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        </svg>                           
+                    </Mailto>
+                    <span className="m-5">Enviame un correo!</span> 
+                    </p>
+                    <h4 className="text-white sm:text-3xl text-3xl mb-1 font-medium title-font">
+                        Mis Redes:
+                    </h4>
+                        <a href="https://www.linkedin.com/in/jhonatan-torres-47123b27a/" className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+                            <SocialIcon network="linkedin" />
+                            Linkedin
+                        </a>                   
+                        <a href="https://github.com/JhonatanT2" className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+                            <SocialIcon network="github" />
+                            GitHub
+                        </a>                    
+                </div>    
             </div>
         </section>
     )

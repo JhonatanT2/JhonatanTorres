@@ -13,7 +13,7 @@ export default function Skills() {
                         Habilidades &amp; Tecnologías
                     </h1>
                     <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-                        Algunas de las habilidades con las que cuento y puedo destacar que controlo, tambien con ganas de ampliar este abanico y seguir mejorando en las mismas.
+                        Tecnologías más destacables con las que trabjo, espero seguir ampliando este abanico y seguir mejorando en las mismas.
                     </p>
                 </div>
                 <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
