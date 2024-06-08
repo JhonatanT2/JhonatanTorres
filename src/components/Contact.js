@@ -41,10 +41,6 @@ export default function Contact() {
                             <p className="text-indigo-400 leading-relaxed">
                                 arielto333@gmail.com
                             </p>
-                            {/* <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-                                TELÉFONO
-                            </h2>
-                            <p className="leading-relaxed">000000000</p> */}
                         </div>
                     </div>
                 </div>
@@ -53,7 +49,7 @@ export default function Contact() {
                         Contratame
                     </h2>
                     <p className="leading-relaxed mb-5">
-                        Si te interesa mi perfil y te gustaria ponerte en contacto, puedes contactarme mediante mi correo!
+                        Si te interesa mi perfil y te gustaria ponerte en contacto, puedes escribir a mi correo!
                     </p>
                     <p className="leading-relaxed mb-5 flex items-center">                      
                     <Mailto email="arielto333@gmail.com" subject="Hola" body="Hello world!">
